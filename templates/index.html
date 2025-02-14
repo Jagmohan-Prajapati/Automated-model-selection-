@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congressional Voting Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: grid;
+            gap: 10px;
+        }
+        label {
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Congressional Voting Predictor</h1>
+    <form action="/predict" method="post">
+        {% for feature in features %}
+        <label>
+            {{ feature.replace('_', ' ').title() }}:
+            <select name="{{ feature }}">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+                <option value="2">Unknown</option>
+            </select>
+        </label>
+        {% endfor %}
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>
+

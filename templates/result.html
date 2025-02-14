@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    <div class="result">
+        <p>Predicted Party: <strong>{{ result.prediction }}</strong></p>
+        <p>Probability:</p>
+        <ul>
+            <li>Democrat: {{ "%.2f"|format(result.probability.democrat * 100) }}%</li>
+            <li>Republican: {{ "%.2f"|format(result.probability.republican * 100) }}%</li>
+        </ul>
+    </div>
+    <a href="/">Make another prediction</a>
+</body>
+</html>
+
